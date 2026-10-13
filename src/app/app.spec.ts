@@ -24,10 +24,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('book-store');
   });
 
-  it('should render title', () => {
+  it('should render navigation to the user form and a router outlet', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('book-store app is running!');
+    expect(compiled.querySelector('a[href="/user-form"]').textContent).toContain('User Form');
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });

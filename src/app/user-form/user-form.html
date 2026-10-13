@@ -1,0 +1,46 @@
+<div class="container">
+  <h1>User Information</h1>
+  <p>First name and last name are required.</p>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name:</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName"
+             autocomplete="given-name" required>
+      @if (firstName.invalid && (firstName.dirty || firstName.touched)) {
+        <div class="alert alert-danger" role="alert">First name is required.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name:</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName"
+             autocomplete="family-name" required>
+      @if (lastName.invalid && (lastName.dirty || lastName.touched)) {
+        <div class="alert alert-danger" role="alert">Last name is required.</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">Phone Number (optional):</label>
+      <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+             autocomplete="tel" inputmode="numeric" aria-describedby="phoneNumberHelp">
+      <div id="phoneNumberHelp" class="form-text">Example: 6135550123 (10 digits, no spaces or punctuation).</div>
+      @if (phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)) {
+        <div class="alert alert-danger" role="alert">
+          Phone number must contain exactly 10 digits, with the first and fourth digits different from 0.
+        </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email:</label>
+      <input type="email" class="form-control" id="email" formControlName="email" autocomplete="email">
+      @if (email.invalid && (email.dirty || email.touched)) {
+        <div class="alert alert-danger" role="alert">Please enter a valid email address.</div>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Submit</button>
+  </form>
+</div>

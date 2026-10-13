@@ -7,6 +7,8 @@ import {Admin} from "./admin/admin";
 import {loggedInGuard} from "./logged-in.guard";
 import {Books} from "./books/books";
 import {Book} from "./books/book/book";
+import { UserForm } from './user-form/user-form';
+import { UserResult } from './user-result/user-result';
 
 const booksRoutes: Routes = [
   {path: ':id', component: Book}
@@ -25,6 +27,8 @@ export const routes: Routes = [
   {path: 'books', component: Books,
     children: booksRoutes
   },
+  {path: 'user-form', component: UserForm},
+  {path: 'user-result', component: UserResult},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: '**', component: Home}
 ];
