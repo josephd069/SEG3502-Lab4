@@ -1,37 +1,45 @@
-<div class="container">
-  <h1>Submitted Information</h1>
+
+<div class="container resultat-carte">
+  <h1>Renseignements soumis</h1>
 
   @if (userInfo) {
     <table class="table table-bordered">
-      <caption>Your submitted information</caption>
+      <caption>Résumé des renseignements transmis</caption>
       <thead>
         <tr>
-          <th scope="col">Field</th>
-          <th scope="col">Value</th>
+          <th scope="col">Champ</th>
+          <th scope="col">Valeur</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">First Name</th>
+          <th scope="row">Prénom</th>
           <td>{{ userInfo.firstName }}</td>
         </tr>
         <tr>
-          <th scope="row">Last Name</th>
+          <th scope="row">Nom de famille</th>
           <td>{{ userInfo.lastName }}</td>
         </tr>
         <tr>
-          <th scope="row">Phone Number</th>
-          <td>{{ userInfo.phoneNumber || 'Not provided' }}</td>
+          <th scope="row">Numéro de téléphone</th>
+          <td>{{ userInfo.phoneNumber || 'Non renseigné' }}</td>
         </tr>
         <tr>
-          <th scope="row">Email</th>
-          <td>{{ userInfo.email || 'Not provided' }}</td>
+          <th scope="row">Adresse courriel</th>
+          <td>{{ userInfo.email || 'Non renseigné' }}</td>
         </tr>
       </tbody>
     </table>
   } @else {
-    <p>No information has been submitted. Please complete the user form first.</p>
+    <p class="message-vide">
+      Aucun renseignement n'a été soumis.
+      Veuillez remplir le formulaire d'abord.
+    </p>
   }
 
-  <a [routerLink]="['/user-form']" class="btn btn-primary">Back to Form</a>
+  <div class="actions">
+    <a [routerLink]="['/user-form']" class="btn btn-primary">
+      Retour au formulaire
+    </a>
+  </div>
 </div>

@@ -1,46 +1,74 @@
-<div class="container">
-  <h1>User Information</h1>
-  <p>First name and last name are required.</p>
+
+<div class="container formulaire-carte">
+  <h1>Renseignements personnels</h1>
+  <p class="sous-titre">
+    Le prénom et le nom de famille sont obligatoires.
+  </p>
 
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
     <div class="mb-3">
-      <label for="firstName" class="form-label">First Name:</label>
-      <input type="text" class="form-control" id="firstName" formControlName="firstName"
+      <label for="firstName" class="form-label">Prénom :</label>
+      <input type="text" class="form-control" id="firstName"
+             formControlName="firstName"
              autocomplete="given-name" required>
       @if (firstName.invalid && (firstName.dirty || firstName.touched)) {
-        <div class="alert alert-danger" role="alert">First name is required.</div>
-      }
-    </div>
-
-    <div class="mb-3">
-      <label for="lastName" class="form-label">Last Name:</label>
-      <input type="text" class="form-control" id="lastName" formControlName="lastName"
-             autocomplete="family-name" required>
-      @if (lastName.invalid && (lastName.dirty || lastName.touched)) {
-        <div class="alert alert-danger" role="alert">Last name is required.</div>
-      }
-    </div>
-
-    <div class="mb-3">
-      <label for="phoneNumber" class="form-label">Phone Number (optional):</label>
-      <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber"
-             autocomplete="tel" inputmode="numeric" aria-describedby="phoneNumberHelp">
-      <div id="phoneNumberHelp" class="form-text">Example: 6135550123 (10 digits, no spaces or punctuation).</div>
-      @if (phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)) {
         <div class="alert alert-danger" role="alert">
-          Phone number must contain exactly 10 digits, with the first and fourth digits different from 0.
+          Le prénom est obligatoire.
         </div>
       }
     </div>
 
     <div class="mb-3">
-      <label for="email" class="form-label">Email:</label>
-      <input type="email" class="form-control" id="email" formControlName="email" autocomplete="email">
-      @if (email.invalid && (email.dirty || email.touched)) {
-        <div class="alert alert-danger" role="alert">Please enter a valid email address.</div>
+      <label for="lastName" class="form-label">
+        Nom de famille :
+      </label>
+      <input type="text" class="form-control" id="lastName"
+             formControlName="lastName"
+             autocomplete="family-name" required>
+      @if (lastName.invalid && (lastName.dirty || lastName.touched)) {
+        <div class="alert alert-danger" role="alert">
+          Le nom de famille est obligatoire.
+        </div>
       }
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Submit</button>
+    <div class="mb-3">
+      <label for="phoneNumber" class="form-label">
+        Numéro de téléphone (facultatif) :
+      </label>
+      <input type="tel" class="form-control" id="phoneNumber"
+             formControlName="phoneNumber" autocomplete="tel"
+             inputmode="numeric"
+             aria-describedby="phoneNumberHelp">
+      <div id="phoneNumberHelp" class="form-text">
+        Exemple : 6135550123 (10 chiffres, sans espaces ni signes de ponctuation).
+      </div>
+      @if (phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)) {
+        <div class="alert alert-danger" role="alert">
+          Le numéro doit comporter exactement 10 chiffres.
+          Le premier et le quatrième chiffre ne peuvent pas être 0.
+        </div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">
+        Adresse courriel (facultative) :
+      </label>
+      <input type="email" class="form-control" id="email"
+             formControlName="email" autocomplete="email">
+      @if (email.invalid && (email.dirty || email.touched)) {
+        <div class="alert alert-danger" role="alert">
+          Veuillez saisir une adresse courriel valide.
+        </div>
+      }
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="btn btn-success"
+              [disabled]="userForm.invalid">
+        Soumettre
+      </button>
+    </div>
   </form>
 </div>

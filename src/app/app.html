@@ -1,26 +1,26 @@
-<div class="container">
-  <div class="nav-link">
-    <a [routerLink]="['/home']"> Home </a>
-    <a [routerLink]="['/about']"> About Us </a>
-    <a [routerLink]="['/contact']"> Contact Us </a>
-    <a [routerLink]="['/books']"> Books </a>
-    <a [routerLink]="['/login']"> Login </a>
-    <a [routerLink]="['/admin']"> Admin </a>
-    <a [routerLink]="['/user-form']"> User Form </a>
-  </div>
-</div>
 
-<div class="container-fluid" >
-  <div class="row">
-    <div class="col-3">
-      <img src="gobooks.jpg" height="150" width="175"/>
-    </div>
-    <div class="col-6">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="col-3">
-      <img src="1books2-med.jpg" height="150" width="175"/>
-    </div>
-  </div>
-</div>
+<header class="entete">
+  <nav class="navigation" aria-label="Navigation principale">
+    <a [routerLink]="['/home']">Accueil</a>
+    <a [routerLink]="['/about']">À propos</a>
+    <a [routerLink]="['/contact']">Contact</a>
+    <a [routerLink]="['/books']">Livres</a>
+    <a [routerLink]="['/login']">Connexion</a>
+    <a [routerLink]="['/admin']">Administration</a>
+    <a [routerLink]="['/user-form']">Formulaire</a>
+  </nav>
+</header>
 
+<main class="mise-en-page">
+  <div class="image-laterale" aria-hidden="true">
+    <img src="gobooks.jpg" alt="">
+  </div>
+
+  <section class="contenu-principal">
+    <router-outlet></router-outlet>
+  </section>
+
+  <div class="image-laterale" aria-hidden="true">
+    <img src="1books2-med.jpg" alt="">
+  </div>
+</main>
