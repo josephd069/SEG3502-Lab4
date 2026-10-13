@@ -1,0 +1,29 @@
+
+/* User Form Design */
+
+.container {
+  background-color: #f3f7ff;
+  border: 1px solid #d7e4ff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+h1 {
+  color: #1f4273;
+}
+
+.form-control {
+  border-radius: 9px;
+}
+
+.btn-success {
+  background-color: #2867b2;
+  border-color: #2867b2;
+  border-radius: 9px;
+  padding: 9px 22px;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #1d4d88;
+  border-color: #1d4d88;
+}

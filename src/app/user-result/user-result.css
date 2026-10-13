@@ -1,3 +1,23 @@
+
+/* User Result Design */
+
+.container {
+  background-color: #f3f7ff;
+  border: 1px solid #d7e4ff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+h1 {
+  color: #1f4273;
+}
+
 td {
   overflow-wrap: anywhere;
+}
+
+.btn-primary {
+  background-color: #2867b2;
+  border-color: #2867b2;
+  border-radius: 9px;
 }
